@@ -5,7 +5,7 @@
     ViewData["Title"] = "Deregister";
 }
 
-<h1>Deregister</h1>
+<h1>Deregister - @Model.Event.Name</h1>
 
 <div>
     <hr />
@@ -33,7 +33,7 @@
     <form method="post">
         <input type="hidden" asp-for="EventRegistration.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-         <a asp-page="/Events/Details" asp-route-id="@Model.EventRegistration.EventId">Back to Event Details</a> |
+         <a href="/Events/@Model.Event.Id/Registrations">Back to Registrations</a> |
         <a asp-page="/Events/Index">Back to Events</a>
     </form>
 </div>

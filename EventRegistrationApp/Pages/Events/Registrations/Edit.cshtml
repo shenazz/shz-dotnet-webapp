@@ -5,7 +5,7 @@
     ViewData["Title"] = "Edit Registration";
 }
 
-<h1>Edit Registration</h1>
+<h1>Edit Registration - @Model.Event.Name</h1>
 
 <hr />
 <div class="row">
@@ -40,7 +40,7 @@
 </div>
 
 <div>
-    <a asp-page="/Events/Details" asp-route-id="@Model.EventRegistration.EventId">Back to Event Details</a> |
+    <a href="/Events/@Model.Event.Id/Registrations">Back to Registrations</a> |
     <a asp-page="/Events/Index">Back to Events</a>
 </div>
 

@@ -19,6 +19,8 @@ namespace EventRegistrationApp.Pages.Events.Registrations
         [BindProperty]
         public EventRegistration EventRegistration { get; set; } = default!;
 
+        public Event Event { get; set; } = default!;
+
 
         public async Task<IActionResult> OnGetAsync(long eventId)
         {
@@ -26,6 +28,10 @@ namespace EventRegistrationApp.Pages.Events.Registrations
             if (@event == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                Event = @event;
             }
 
             EventRegistration = new EventRegistration

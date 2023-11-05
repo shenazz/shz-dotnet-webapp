@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using EventRegistrationApp.Models;
 using EventRegistrationApp.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EventRegistrationApp.Pages.Events
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly EventContext _context;

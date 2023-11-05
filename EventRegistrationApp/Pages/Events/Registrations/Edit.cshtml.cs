@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EventRegistrationApp.Models;
 using EventRegistrationApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EventRegistrationApp.Pages.Events.Registrations
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly EventContext _context;
@@ -18,12 +20,18 @@ namespace EventRegistrationApp.Pages.Events.Registrations
         [BindProperty]
         public EventRegistration EventRegistration { get; set; } = default!;
 
+        public Event Event { get; set; } = default!;
+
         public async Task<IActionResult> OnGetAsync(long eventId, long id)
         {
             var @event = await _context.Events.FirstOrDefaultAsync(m => m.Id == eventId);
             if (@event == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                Event = @event;
             }
 
             var eventregistration = await _context.EventRegistrations.FirstOrDefaultAsync(m => m.Id == id);

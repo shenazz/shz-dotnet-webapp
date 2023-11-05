@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EventRegistrationApp.Data;
 using EventRegistrationApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EventRegistrationApp.Pages.Events
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly EventContext _context;

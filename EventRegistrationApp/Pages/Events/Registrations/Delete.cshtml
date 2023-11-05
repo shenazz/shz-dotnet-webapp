@@ -1,0 +1,39 @@
+@page "/Events/{eventId}/Registrations/Delete/{id}"
+@model EventRegistrationApp.Pages.Events.Registrations.DeleteModel
+
+@{
+    ViewData["Title"] = "Deregister";
+}
+
+<h1>Deregister</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EventRegistration.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EventRegistration.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EventRegistration.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EventRegistration.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EventRegistration.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EventRegistration.Email)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="EventRegistration.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+         <a asp-page="/Events/Details" asp-route-id="@Model.EventRegistration.EventId">Back to Event Details</a> |
+        <a asp-page="/Events/Index">Back to Events</a>
+    </form>
+</div>

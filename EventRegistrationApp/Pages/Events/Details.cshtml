@@ -1,0 +1,89 @@
+@page "{id}"
+@model EventRegistrationApp.Pages.Events.DetailsModel
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<h1>Event Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.Location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event.StartTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.StartTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event.EndTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event.EndTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a href="/Events/@Model.Event.Id/Registrations/Create">Register</a>
+</div>
+<br />
+<div>
+    <h4>Event Registrations</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registration in Model.Event.EventRegistrations ??
+            Enumerable.Empty<EventRegistrationApp.Models.EventRegistration>())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => registration.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => registration.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => registration.Email)
+                    </td>
+                    <td>
+                        <a href="/Events/@registration.EventId/Registrations/Edit/@registration.Id">Edit</a> |
+                        <a href="/Events/@registration.EventId/Registrations/Delete/@registration.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Event?.Id">Edit</a> |
+    <a asp-page="./Index">Back to Events</a>
+</div>

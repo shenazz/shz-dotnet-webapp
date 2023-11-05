@@ -1,0 +1,49 @@
+@page "/Events/{eventId}/Registrations/Create"
+@model EventRegistrationApp.Pages.Events.Registrations.CreateModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register for an Event </h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="EventRegistration.Name" class="control-label"></label>
+                <input asp-for="EventRegistration.Name" class="form-control" />
+                <span asp-validation-for="EventRegistration.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EventRegistration.PhoneNumber" class="control-label"></label>
+                <input asp-for="EventRegistration.PhoneNumber" class="form-control" />
+                <span asp-validation-for="EventRegistration.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EventRegistration.Email" class="control-label"></label>
+                <input asp-for="EventRegistration.Email" class="form-control" />
+                <span asp-validation-for="EventRegistration.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EventRegistration.EventId" class="control-label"></label>
+                <input asp-for="EventRegistration.EventId" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3">
+                <input type="submit" value="Register" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Events/Index">Back to Events</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

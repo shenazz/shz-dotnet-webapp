@@ -45,6 +45,8 @@ namespace EventRegistrationApp.Pages.Events
                 return Page();
             }
 
+            Event.StartTime = DateTime.SpecifyKind(Event.StartTime, DateTimeKind.Utc);
+            Event.EndTime = DateTime.SpecifyKind(Event.EndTime, DateTimeKind.Utc);
             _context.Attach(Event).State = EntityState.Modified;
 
             try

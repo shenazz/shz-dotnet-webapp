@@ -70,7 +70,8 @@ namespace EventRegistrationApp.Pages.Events.Registrations
                 }
             }
 
-            return RedirectToPage("/Events/Details", new { id = EventRegistration.EventId });
+            return RedirectToPage("/Events/Registrations/List", new { eventId = EventRegistration.EventId });
+
         }
 
         private bool EventRegistrationExists(long id)

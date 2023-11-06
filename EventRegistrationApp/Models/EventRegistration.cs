@@ -13,6 +13,7 @@ public class EventRegistration
     public string? Name { get; set; }
 
     [Phone]
+    [Display(Name = "Phone Number")]
     public string? PhoneNumber { get; set; }
 
     [Required]

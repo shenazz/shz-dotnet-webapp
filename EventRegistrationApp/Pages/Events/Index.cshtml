@@ -1,4 +1,4 @@
-@page
+@page "{searchKey?}"
 @model EventRegistrationApp.Pages.Events.IndexModel
 
 @{
@@ -10,6 +10,12 @@
 <p>
     <a asp-page="Create">Create New Event</a>
 </p>
+<form>
+    <p>
+        Event Name: <input type="text" asp-for="SearchKey" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>

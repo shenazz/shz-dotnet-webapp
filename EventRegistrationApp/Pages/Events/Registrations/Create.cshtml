@@ -13,6 +13,10 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group mb-3">
+                <label asp-for="Event.Name" class="control-label">Event</label>
+                <input asp-for="Event.Name" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3">
                 <label asp-for="EventRegistration.Name" class="control-label"></label>
                 <input asp-for="EventRegistration.Name" class="form-control" />
                 <span asp-validation-for="EventRegistration.Name" class="text-danger"></span>
@@ -26,10 +30,6 @@
                 <label asp-for="EventRegistration.Email" class="control-label"></label>
                 <input asp-for="EventRegistration.Email" class="form-control" />
                 <span asp-validation-for="EventRegistration.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="EventRegistration.EventId" class="control-label"></label>
-                <input asp-for="EventRegistration.EventId" class="form-control" readonly />
             </div>
             <div class="form-group mb-3">
                 <input type="submit" value="Register" class="btn btn-primary" />

@@ -24,7 +24,7 @@ public class IndexModel : PageModel
     {
         if (!string.IsNullOrEmpty(SearchKey))
         {
-            Event = await _context.Events.Where(@event => @event.Name != null && @event.Name.Contains(SearchKey)).ToListAsync();
+            Event = await _context.Events.Where(@event => @event.Name != null && @event.Name.ToLower().Contains(SearchKey.ToLower())).ToListAsync();
         }
         else
         {

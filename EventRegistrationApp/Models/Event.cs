@@ -25,4 +25,10 @@ public class Event
     public DateTime EndTime { get; set; }
 
     public virtual ICollection<EventRegistration>? EventRegistrations { get; set; }
+
+
+    public override string ToString()
+    {
+        return $"{Id}-{Name}-{Description}-{Location}-{StartTime}-{EndTime}";
+    }
 }

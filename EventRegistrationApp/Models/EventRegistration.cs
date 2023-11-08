@@ -22,4 +22,10 @@ public class EventRegistration
 
     [ForeignKey("Event")]
     public long EventId { get; set; }
+
+
+    public override string ToString()
+    {
+        return $"{Id}-{Name}-{PhoneNumber}-{Email}-{EventId}";
+    }
 }

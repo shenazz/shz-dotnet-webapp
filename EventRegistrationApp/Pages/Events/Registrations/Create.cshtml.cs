@@ -19,6 +19,7 @@ namespace EventRegistrationApp.Pages.Events.Registrations
         [BindProperty]
         public EventRegistration EventRegistration { get; set; } = default!;
 
+
         public Event Event { get; set; } = default!;
 
 
@@ -53,7 +54,7 @@ namespace EventRegistrationApp.Pages.Events.Registrations
             _context.EventRegistrations.Add(EventRegistration);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Events/Details", new { id = EventRegistration.EventId });
+            return RedirectToPage("/Events/Index", new { id = EventRegistration.EventId });
         }
     }
 }
